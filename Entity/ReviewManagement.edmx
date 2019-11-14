@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ReviewManagementModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Review">
+          <Key>
+            <PropertyRef Name="ReviewID" />
+          </Key>
+          <Property Name="ReviewID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerID" Type="int" Nullable="false" />
+          <Property Name="Hours" Type="float" Nullable="false" />
+          <Property Name="ReviewStatusID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="DeletedBy" Type="int" />
+          <Property Name="CreatedAt" Type="datetimeoffset" Precision="2" Nullable="false" />
+          <Property Name="UpdatedAt" Type="datetimeoffset" Precision="2" />
+          <Property Name="DeletedAt" Type="datetimeoffset" Precision="2" />
+          <Property Name="LastTimeEntryId" Type="int" />
+          <Property Name="IsViewedByRevieweeAfterFinalized" Type="bit" />
+          <Property Name="IsManual" Type="bit" />
+          <Property Name="EngagementID" Type="int" />
+          <Property Name="Session" Type="int" />
+          <Property Name="IsDismissed" Type="bit" />
+          <Property Name="CoachUserID" Type="int" />
+        </EntityType>
+        <EntityContainer Name="ReviewManagementModelStoreContainer">
+          <EntitySet Name="Review" EntityType="Self.Review" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ReviewManagementModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Review">
+          <Key>
+            <PropertyRef Name="ReviewID" />
+          </Key>
+          <Property Name="ReviewID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerID" Type="Int32" Nullable="false" />
+          <Property Name="Hours" Type="Double" Nullable="false" />
+          <Property Name="ReviewStatusID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="DeletedBy" Type="Int32" />
+          <Property Name="CreatedAt" Type="DateTimeOffset" Nullable="false" Precision="2" />
+          <Property Name="UpdatedAt" Type="DateTimeOffset" Precision="2" />
+          <Property Name="DeletedAt" Type="DateTimeOffset" Precision="2" />
+          <Property Name="LastTimeEntryId" Type="Int32" />
+          <Property Name="IsViewedByRevieweeAfterFinalized" Type="Boolean" />
+          <Property Name="IsManual" Type="Boolean" />
+          <Property Name="EngagementID" Type="Int32" />
+          <Property Name="Session" Type="Int32" />
+          <Property Name="IsDismissed" Type="Boolean" />
+          <Property Name="CoachUserID" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="ReviewManagementEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Reviews" EntityType="Self.Review" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ReviewManagementModelStoreContainer" CdmEntityContainer="ReviewManagementEntities">
+          <EntitySetMapping Name="Reviews">
+            <EntityTypeMapping TypeName="ReviewManagementModel.Review">
+              <MappingFragment StoreEntitySet="Review">
+                <ScalarProperty Name="ReviewID" ColumnName="ReviewID" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="Hours" ColumnName="Hours" />
+                <ScalarProperty Name="ReviewStatusID" ColumnName="ReviewStatusID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="DeletedBy" ColumnName="DeletedBy" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="DeletedAt" ColumnName="DeletedAt" />
+                <ScalarProperty Name="LastTimeEntryId" ColumnName="LastTimeEntryId" />
+                <ScalarProperty Name="IsViewedByRevieweeAfterFinalized" ColumnName="IsViewedByRevieweeAfterFinalized" />
+                <ScalarProperty Name="IsManual" ColumnName="IsManual" />
+                <ScalarProperty Name="EngagementID" ColumnName="EngagementID" />
+                <ScalarProperty Name="Session" ColumnName="Session" />
+                <ScalarProperty Name="IsDismissed" ColumnName="IsDismissed" />
+                <ScalarProperty Name="CoachUserID" ColumnName="CoachUserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
